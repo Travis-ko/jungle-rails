@@ -3,7 +3,11 @@
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
-
+<% if cart.empty?%>
+<div class="order-summary jumbotron">
+    <h4>Your cart is empty <%= current_user.email %>!</h4>
+</div>
+<% else %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -43,11 +47,11 @@
           data-name="Jungle"
           data-description="Khurram Virani's Jungle Order"
           data-locale="auto"
-          data-email="kvirani@gmail.com"
+          data-email= <%= current_user.email %>
           data-currency="cad">
         </script>
       <% end %>
     </div>
   </div>
-
+<% end %>
 </section>
